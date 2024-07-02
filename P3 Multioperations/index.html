@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Multioperation</title>
+    <style> 
+        * {
+            font-size: 40px;
+            font-family: Calibri;
+        }
+        body {
+            background-color: lightblue;
+        }
+    </style>
+
+    <script>
+        function compute() {
+            event.preventDefault();
+            let num = document.getElementById("num");
+            let ans = document.getElementById("answer");
+            let action = document.activeElement.value;
+
+            if (num.value === "") {
+                alert("Please Enter Your Number:");
+                ans.innerHTML = "";
+                num.focus();
+                return;
+            }
+
+            let n = parseFloat(num.value);
+            if (action == "Square"){
+                let res = n**2
+                ans.innerHTML = "Square of " + n + " = " + res.toFixed(2);
+            } else if (action == "SquareRoot"){
+                let res = n**0.5
+                ans.innerHTML = "Square of Root " + n + " = " + res.toFixed(2);
+            } else if (action == "Cube"){
+                let res = n**3
+                ans.innerHTML = "Cube of " + n + " = " + res.toFixed(2);
+            }
+        }    
+        
+    </script>
+    </head>
+    
+<body>
+    <center>
+        <h1>Choose your desireed opreations</h1>
+        <form onsubmit="compute()">
+            <input type="text" placeholder="Enter Number" id="num" />
+            <br><br>
+            <input type="submit" value="Square" />
+            <input type="submit" value="SquareRoot" />
+            <input type="submit" value="Cube" />
+        </form>
+        <h2 id="answer"></h2>
+    </center>
+</body>
+</html>
+ 
